@@ -18,7 +18,7 @@ module.exports.home=function(req,res){
     });
   
 };
-
+// this is for creating the habit
 module.exports.create = function(req,res){
     Habit.create({
         category:req.body.category,
@@ -34,7 +34,7 @@ module.exports.create = function(req,res){
 
 
 module.exports.delete=function(req,res){
-    let id=req.query.id;
+    let id=req.query.id;       // here we are fetching the habit id we want to delete
     Habit.findByIdAndDelete(id,function(err){
         if(err){
             console.log('error in deleting object from DB')
@@ -46,7 +46,7 @@ module.exports.delete=function(req,res){
     }
 
 module.exports.progress = function(req,res){
-   return res.render('progress',{
+   return res.render('progress',{  // this si for rendering to the progress page
        title:"Habit || Progress"
    })
 }
