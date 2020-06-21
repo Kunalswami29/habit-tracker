@@ -1,8 +1,10 @@
 ﻿# Habit-tracker
 
                                       Following Steps Required To Make A Habit-Tracker App
+                                      
 
 Step-1 Entry-Point
+
                  1.1 index.js is the main and the starting file for the project.
 
 Step-2 Intialize Project
