@@ -1,14 +1,17 @@
-const mongoose = require('mongoose'); // to import mongoose
-const habitSchema = new mongoose.Schema({  // to structure the schema
+const mongoose= require('mongoose');//accessing the mongoose library
+const habitSchema = new mongoose.Schema({   //setting up the schema for db
     category:{
         type:String,
-        required:true
+        require:true
     },
     date:{
         type:String,
-        required:true
+        require:true
     }
+},{
+    timestamps:true
 });
 
-const Habit = mongoose.models('Habit',habitSchema); // to set the schema
-module.exports=Habit; // to export schema
+const Habit=mongoose.model('Habit',habitSchema);//this is to create the collections we want to store in DB
+
+module.exports = Habit;

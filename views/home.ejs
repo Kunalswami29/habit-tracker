@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="/css/home.css">   <!--this is to link with css-->
+<main id="main-container">  <!--this is the main box-->
+    <div id="heading">  <!---this is the page heading-->
+        Habit_Tracker  
+    </div>
+    <div id="insert-section"> <!--this is the input section-->
+        <p id="title">Category</p>
+    <form action="/create" method="POST"> <!--this is the form section-->
+        <div id="insert-bar"><!--the input div for details-->
+            <div id="file">
+                <i class="fas fa-file-medical"></i>
+            </div>
+            <input  id="input-box" type="text" name="category" placeholder="what do you like to do?" required><!--this is for the Habit type-->
+            <button id="button" type="submit">
+                <i class="far fa-plus-square"></i>
+            </button>  
+        </div>
+        <div id="date-container"><!--this is for category section-->
+            <p style="font-weight: 400; font-size:18px; font-family: serif; margin:18px 3px 0px 3px">Date:</p>
+            <input id="date-box" type="date" name="date" required>  <!--this is the date sec-->
+        </div> 
+    </form>
+    <div id="task-list-container"><!--this is the area for tasks-->
+        <ul >
+            <% for(let i of habit_list){ %><!--this for loop is for creating the required list-->
+                <li class="tasks"> 
+                    <div id="checkbx">
+                        <input id="check-box" type="checkbox" name="checkbox"> <!--this is the check box area-->
+                    </div>
+                    <div class="details">
+                        <a href="/progress"><p><%= i.category %></p></a>
+                        <br>
+                        <div id="date-text">
+                            <i class="fas fa-calendar-alt"></i><%= i.date %>
+                         </div>                       
+                    </div>
+                    <div class="delete"> <!--this is to delete-->
+                        <a href="/delete/?id=<%=i._id%>">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                        
+
+                    </div>
+                    
+                </li>
+            <% } %>
+        </ul>
+       
+    </div>
+    
+</div>
+     
+
+</main>
